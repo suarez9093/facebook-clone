@@ -1,3 +1,8 @@
+:root {
+  --blue: #2e81f4;
+  --white: #ffffff;
+}
+
 .header,
 .header__left,
 .header__middle,
@@ -66,10 +71,13 @@
 .header__option > .MuiSvgIcon-root {
   color: gray;
 }
-.header__option:hover > .MuiSvgIcon-root {
-  color: #2e81f4;
+.header__option:hover > .MuiSvgIcon-root,
+.header__option--active > .MuiSvgIcon-root {
+  color: var(--blue);
 }
-
+.header__option--active {
+  border-bottom: 4px solid var(--blue);
+}
 .header__info > h4 {
   margin-left: 10px;
 }
