@@ -5,18 +5,19 @@ import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
 import QueryBuilderIcon from '@material-ui/icons/QueryBuilder';
 import StoreIcon from '@material-ui/icons/Store';
 import TodayIcon from '@material-ui/icons/Today';
-import React from 'react';
+import React, { useContext } from 'react';
+import { context } from '../../context/context';
+import helpers from '../../helpers/functions';
 import './Sidebar.css';
 import SidebarRow from './SidebarRow';
-
 function Sidebar() {
+  const { user } = useContext(context);
+  console.log('user sidebar', user.photoURL);
   return (
     <div className='sidebar'>
       <SidebarRow
-        title='Alex Suarez'
-        src={
-          'https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80'
-        }
+        title={helpers.capitalizeWord(user.displayName)}
+        src={user.photoURL}
       />
       <SidebarRow title='Friends' Icon={PeopleAltIcon} />
       <SidebarRow title='Marketplace' Icon={StoreIcon} />

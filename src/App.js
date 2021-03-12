@@ -8,9 +8,10 @@ import Widgets from './components/Widgets';
 import { context } from './context/context';
 
 function App() {
-  const { user } = useContext(context);
+  const { user, isLoginError } = useContext(context);
   return (
     <div className='app'>
+      {isLoginError && <p>{isLoginError}</p>}
       {!user ? (
         <Login />
       ) : (

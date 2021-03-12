@@ -9,9 +9,11 @@ import OndemandVideoIcon from '@material-ui/icons/OndemandVideo';
 import SearchIcon from '@material-ui/icons/Search';
 import SportsEsportsIcon from '@material-ui/icons/SportsEsports';
 import StorefrontIcon from '@material-ui/icons/Storefront';
-import React from 'react';
+import React, { useContext } from 'react';
+import { context } from '../../context/context';
 import './Header.css';
 function Header() {
+  const { user } = useContext(context);
   return (
     <header className='header'>
       <div className='header__left'>
@@ -40,8 +42,8 @@ function Header() {
       </div>
       <div className='header__right'>
         <div className='header__info'>
-          <Avatar />
-          <h4>Alex Suarez</h4>
+          <Avatar src={user.photoURL} />
+          {/* <h4>{helpers.capitalizeWord(user.displayName)}</h4> */}
         </div>
 
         <IconButton>

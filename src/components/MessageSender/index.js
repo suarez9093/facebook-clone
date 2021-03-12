@@ -4,14 +4,16 @@ import PhotoLibraryIcon from '@material-ui/icons/PhotoLibrary';
 import VideocamIcon from '@material-ui/icons/Videocam';
 import React, { useContext } from 'react';
 import { context } from '../../context/context';
+import helpers from '../../helpers/functions';
 import './MessageSender.css';
-
 function MessageSender() {
-  const { handleSubmit, message, handleChange, imageURL } = useContext(context);
+  const { handleSubmit, message, handleChange, imageURL, user } = useContext(
+    context
+  );
   return (
     <div className='messageSender'>
       <div className='messageSender__top'>
-        <Avatar />
+        <Avatar src={user.photoURL} />
         <form>
           <input
             name='message'
@@ -19,7 +21,9 @@ function MessageSender() {
             onChange={handleChange}
             className='messageSender__input'
             type='text'
-            placeholder="What's on your mind?"
+            placeholder={`What's on your mind, ${helpers.capitalizeWord(
+              user.displayName
+            )}?`}
           />
           <input
             name='imageURL'
