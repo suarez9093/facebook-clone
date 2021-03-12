@@ -10,11 +10,9 @@ function ContextProvider({ children }) {
     switch (name) {
       case 'message':
         setMessage(value);
-        console.log(name);
         break;
       case 'imageURL':
         setImageURL(value);
-        console.log(name);
         break;
     }
   };
